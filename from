@@ -1,0 +1,25 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+# Instantiate a WebDriver (e.g., ChromeDriver)
+driver = webdriver.Chrome('/path/to/chromedriver')  # Replace with the actual path to chromedriver
+
+# Open a website
+driver.get('https://www.example.com')
+
+# Find an element by ID and interact with it
+element = driver.find_element_by_id('search-box')
+element.send_keys('Hello, World!')
+element.send_keys(Keys.RETURN)
+
+# Find an element by CSS selector and retrieve its text
+result_element = driver.find_element_by_css_selector('.search-results .result')
+result_text = result_element.text
+print(f'Result: {result_text}')
+
+# Click on a link by link text
+link = driver.find_element_by_link_text('Learn More')
+link.click()
+
+# Close the browser window
+driver.quit()
